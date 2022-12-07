@@ -1,17 +1,12 @@
+// .storybook/preview.js
 import { setup } from "@storybook/vue3";
-
-import { withVuetifyTheme, DEFAULT_THEME } from "./withVuetifyTheme.decorator";
 import { registerPlugins } from "../src/plugins";
+import { withVuetifyTheme, DEFAULT_THEME } from "./withVuetifyTheme.decorator";
 
-setup(registerPlugins);
-
-// Fix for storybook using slots in components
-export const argTypes = {
-  default: {
-    description: "The default Vue slot",
-    control: "text",
-  },
-};
+setup((app) => {
+  // Registers your app's plugins into Storybook
+  registerPlugins(app);
+});
 
 export const globalTypes = {
   theme: {
@@ -36,7 +31,6 @@ export const parameters = {
   controls: {
     expanded: true,
   },
-  background: "light",
 };
 
 export const decorators = [withVuetifyTheme];
