@@ -23,6 +23,7 @@
     "@storybook/vue3": "^7.0.0-alpha.59",
     "@storybook/vue3-vite": "^7.0.0-alpha.59",
     "@vitejs/plugin-vue": "^3.0.3",
+    "chromatic": "^6.11.4",
     "storybook": "^7.0.0-alpha.59",
     "vite": "^3.1.9",
     "vite-plugin-vuetify": "^1.0.0-alpha.12"
