@@ -1,6 +1,8 @@
+// .storybook/withVeutifyTheme.decorator.js
 import { useTheme } from "vuetify";
 
 export const DEFAULT_THEME = "light";
+
 export const withVuetifyTheme = (story, context) => {
   const globalTheme = context.globals.theme || DEFAULT_THEME;
 
