@@ -4,7 +4,7 @@
       <v-img
         contain
         height="300"
-        src="src/assets/logo.svg"
+        :src="imageUrl"
       />
 
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
@@ -75,5 +75,6 @@
 </template>
 
 <script setup>
-  //
+  // If not imported, Vite doesn't move it into the build app / storybook
+  import imageUrl from '@/assets/logo.svg'
 </script>
