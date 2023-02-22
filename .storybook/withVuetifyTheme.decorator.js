@@ -1,22 +1,20 @@
 // .storybook/withVeutifyTheme.decorator.js
-import { useTheme } from "vuetify";
+import { h } from "vue";
+import StoryWrapper from "./StoryWrapper.vue";
 
 export const DEFAULT_THEME = "light";
 
-export const withVuetifyTheme = (story, context) => {
+export const withVuetifyTheme = (storyFn, context) => {
   const globalTheme = context.globals.theme || DEFAULT_THEME;
+  const story = storyFn();
 
-  return {
-    components: { story },
-    setup() {
-      const theme = useTheme();
-
-      theme.global.name.value = globalTheme;
-
-      return {
-        theme,
-      };
-    },
-    template: `<story />`,
+  return () => {
+    return h(
+      StoryWrapper,
+      { themeName: globalTheme },
+      {
+        story: () => h(story, { ...context.args }),
+      }
+    );
   };
 };
